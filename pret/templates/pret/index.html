@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestion de Prêt de Matériel</title>
+</head>
+<body>
+    <h1>Liste des Matériels</h1>
+    <ul>
+        {% for materiel in materiels %}
+            <li>{{ materiel.nom }} (Responsable: {{ materiel.responsable }}, Salle: {{ materiel.salle_actuelle }})</li>
+            <a href="{% url 'emprunt_create' materiel.id %}">Changer de Possesseur</a>
+        {% endfor %}
+    </ul>
+</body>
+</html>

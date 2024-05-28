@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Emprunts</title>
+</head>
+<body>
+    <h1>Liste des Emprunts</h1>
+    <ul>
+        {% for emprunt in emprunts %}
+        <li>
+            {{ emprunt.materiel.nom }} emprunté par {{ emprunt.possesseur.nom }} le {{ emprunt.date_emprunt }}
+            {% if emprunt.date_retour %}
+            (retourné le {{ emprunt.date_retour }})
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
