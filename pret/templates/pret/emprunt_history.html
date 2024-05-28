@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historique des Emprunts pour {{ materiel.nom }}</title>
+</head>
+<body>
+    <h1>Historique des Emprunts pour {{ materiel.nom }}</h1>
+    <ul>
+        {% for emprunt in emprunts %}
+        <li>
+            Emprunté par {{ emprunt.possesseur.nom }} le {{ emprunt.date_emprunt }}
+            {% if emprunt.date_retour %}
+            (retourné le {{ emprunt.date_retour }})
+            {% endif %}
+            <br>
+            Commentaires : {{ emprunt.commentaires }}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Retour à la liste des matériels</a>
+</body>
+</html>
