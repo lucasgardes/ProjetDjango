@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Achats</title>
+</head>
+<body>
+    <h1>Liste des Achats</h1>
+    <ul>
+        {% for materiel in materiels %}
+        <li>
+            {{ materiel.nom }} (Responsable: {{ materiel.responsable.nom }}, Budget: {{ materiel.get_budget_display }}, Montant: {{ materiel.montant }}€)
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Retour à la liste des matériels</a>
+</body>
+</html>
