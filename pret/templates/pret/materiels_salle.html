@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matériels dans la Salle : {{ salle.numero }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Matériels dans la Salle : {{ salle.numero }}</h1>
+    <ul>
+        {% for materiel in materiels %}
+        <li>
+            {{ materiel.nom }} (Responsable: {{ materiel.responsable.nom }}, Possesseur actuel: {{ materiel.possesseur_actuel.nom }})
+            <ul>
+                <li>Budget: {{ materiel.get_budget_display }}, Montant: {{ materiel.montant }}€</li>
+                <li>Accessoires :
+                    <ul>
+                        {% for accessoire in materiel.accessoires.all %}
+                        <li>{{ accessoire.nom }} (État : {{ accessoire.etat }})</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'liste_salles' %}">Retour à la liste des salles</a>
+</body>
+</html>

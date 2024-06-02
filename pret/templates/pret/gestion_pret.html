@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestion de Prêt de Matériel</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des Matériels</h1>
+        <ul>
+            {% for materiel in materiels %}
+                <li>{{ materiel.nom }} (Responsable: {{ materiel.responsable }}, Salle: {{ materiel.salle_actuelle }}, Possesseur actuel: {{ materiel.possesseur_actuel.nom }})</li>
+                <a href="{% url 'emprunt_create' materiel.id %}">Changer de Possesseur</a>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_enseignant' %}">Ajouter un Enseignant</a>
+        <a href="{% url 'add_materiel' %}">Ajouter un Matériel</a>
+        <a href="{% url 'add_accessoire' %}">Ajouter un Accessoire</a>
+        <a href="{% url 'budget_list' %}">Voir la Liste des Achats</a>
+        <a href="{% url 'emprunt_list' %}">Voir la Liste des Emprunts</a>
+        <a href="{% url 'liste_responsables' %}">Test</a>
+        <a href="{% url 'liste_salles' %}">Test</a>
+        <a href="{% url 'liste_materiels' %}">Test</a>
+    </div>
+</body> 
+</html>

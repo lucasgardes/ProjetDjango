@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historique des Emprunts du Matériel : {{ materiel.nom }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Historique des Emprunts du Matériel : {{ materiel.nom }}</h1>
+    <ul>
+        {% for historique in historiques %}
+        <li>
+            Emprunté par {{ historique.possesseur_actuel.nom }} le {{ historique.date_passation }}
+            {% if historique.possesseur_precedent %}
+            (précédemment possédé par {{ historique.possesseur_precedent.nom }})
+            {% endif %}
+            Lieu: {{ historique.lieu }}, Occasion: {{ historique.occasion }}, Objectif: {{ historique.objectif_utilisation }}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Retour à la liste des matériels</a>
+</body>
+</html>

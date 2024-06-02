@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emprunts pour le Matériel : {{ materiel.nom }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Emprunts pour le Matériel : {{ materiel.nom }}</h1>
+    <ul>
+        {% for emprunt in emprunts %}
+        <li>
+            Emprunté par {{ emprunt.possesseur.nom }} le {{ emprunt.date_emprunt|date:"F j, Y, g:i a" }}
+            {% if emprunt.date_retour %}
+                (retourné le {{ emprunt.date_retour|date:"F j, Y, g:i a" }})
+            {% endif %}
+            <br>
+            Commentaires : {{ emprunt.commentaires }}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'liste_materiels' %}">Retour à la liste des matériels</a>
+</body>
+</html>

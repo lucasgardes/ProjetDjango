@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salle du Matériel</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Salle du Matériel : {{ materiel.nom }}</h1>
+    <p>Le matériel se trouve dans la salle : {{ materiel.salle_actuelle.numero }}</p>
+    <a href="{% url 'index' %}">Retour à la liste des matériels</a>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Matériels</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Choisir un Matériel</h1>
+    <ul>
+        {% for materiel in materiels %}
+        <li>
+            <a href="{% url 'details_materiel' materiel.id %}">{{ materiel.nom }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Retour à la liste des matériels</a>
+</body>
+</html>

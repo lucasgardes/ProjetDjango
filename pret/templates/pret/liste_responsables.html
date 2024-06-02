@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Responsables</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Choisir un Responsable</h1>
+    <ul>
+        {% for responsable in responsables %}
+        <li>
+            <a href="{% url 'materiels_responsable' responsable.id %}">{{ responsable.nom }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Retour à la liste des matériels</a>
+</body>
+</html>
