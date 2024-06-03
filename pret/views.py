@@ -31,12 +31,10 @@ def emprunt_create(request, materiel_id):
                 possesseur_actuel=emprunt.possesseur,
                 date_passation=timezone.now(),
                 lieu=historique_form.cleaned_data['lieu'],
-                occasion=historique_form.cleaned_data['occasion'],
                 objectif_utilisation=historique_form.cleaned_data['objectif_utilisation'],
-                etat_accessoires=historique_form.cleaned_data['etat_accessoires']
             )
             historique_passation.accessoires.set(materiel.accessoires.all())
-            
+            form.save_m2m()
             return redirect('emprunt_list')
     else:
         form = EmpruntForm()

@@ -18,6 +18,7 @@
         <li>{{ accessoire.nom }} (État : {{ accessoire.etat }})</li>
         {% endfor %}
     </ul>
+    <a href="{% url 'emprunt_create' materiel.id %}">Changer de Possesseur</a>
     <a href="{% url 'liste_materiels' %}">Retour à la liste des matériels</a>
 </body>
 </html>
