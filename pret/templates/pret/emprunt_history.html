@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Historique des Emprunts pour {{ materiel.nom }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
     <h1>Historique des Emprunts pour {{ materiel.nom }}</h1>

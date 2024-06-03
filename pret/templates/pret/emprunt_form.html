@@ -2,13 +2,17 @@
 <html>
 <head>
     <title>Changer de Possesseur</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
     <h1>Changer de Possesseur pour {{ materiel.nom }}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
+        {{ historique_form.as_p }}
         <button type="submit">Valider</button>
     </form>
+    <a href="{% url 'index' %}">Retour à la liste des matériels</a>
 </body>
 </html>

@@ -2,14 +2,18 @@
 <html>
 <head>
     <title>Ajouter un Accessoire</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h1>Ajouter un Accessoire</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Ajouter</button>
-    </form>
-    <a href="{% url 'index' %}">Retour à la liste des matériels</a>
+    <div class="container">
+        <h1>Ajouter un Accessoire</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Ajouter</button>
+        </form>
+        <a href="{% url 'index' %}">Retour à la liste des matériels</a>
+    </div>
 </body>
 </html>
